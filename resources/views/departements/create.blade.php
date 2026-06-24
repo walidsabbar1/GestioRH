@@ -60,7 +60,7 @@
 
             {{-- Actions --}}
             <div class="flex items-center justify-end gap-3 pt-4" style="border-top: 1px solid var(--color-border);">
-                <a href="{{ route('departements.index') }}" class="btn-secondary">Annuler</a>
+                <a href="{{ route('departements.index') }}" class="btn-secondary">Annuler </a>
                 <button type="submit" class="btn-primary">
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
