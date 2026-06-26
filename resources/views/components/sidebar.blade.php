@@ -8,7 +8,7 @@
             </svg>
         </div>
         <div>
-            <h1>RH Manager</h1>
+            <h1>GestioRH</h1>
             <p class="text-xs" style="color: rgba(255,255,255,0.4);">Gestion RH</p>
         </div>
         {{-- Mobile close button --}}

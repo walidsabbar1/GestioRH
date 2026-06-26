@@ -30,6 +30,6 @@ Route::post('/deconnexion', [AuthController::class, 'logout'])
 Route::middleware('auth')->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
-    Route::resource('departements', DepartementController::class)->except(['show']);
+    Route::resource('departements', DepartementController::class);
     Route::resource('employes', EmployeController::class);
 });

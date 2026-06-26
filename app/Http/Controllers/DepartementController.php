@@ -49,6 +49,27 @@ class DepartementController extends Controller
     }
 
     /**
+     * Afficher un département et ses employés.
+     */
+    public function show(Request $request, Departement $departement)
+    {
+        $query = $departement->employes()->with('departement');
+
+        if ($search = $request->input('recherche')) {
+            $query->where(function ($q) use ($search) {
+                $q->where('nom', 'like', "%{$search}%")
+                  ->orWhere('prenom', 'like', "%{$search}%")
+                  ->orWhere('email', 'like', "%{$search}%")
+                  ->orWhere('fonction', 'like', "%{$search}%");
+            });
+        }
+
+        $employes = $query->latest()->paginate(10)->withQueryString();
+
+        return view('departements.show', compact('departement', 'employes'));
+    }
+
+    /**
      * Formulaire d'édition.
      */
     public function edit(Departement $departement)
