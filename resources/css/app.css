@@ -704,50 +704,48 @@ body {
    ======================================== */
 .pagination-wrapper {
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
-    padding: 1.5rem;
-    padding-top: 1rem;
+    gap: 0.75rem;
+    padding: 1rem 1.5rem;
 }
 
-.pagination-wrapper nav {
-    display: flex;
-    align-items: center;
-    gap: 0.25rem;
-}
-
-.pagination-wrapper nav a,
-.pagination-wrapper nav span {
+.pagination-btn {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 2.25rem;
+    min-width: 2.25rem;
     height: 2.25rem;
+    padding: 0 0.5rem;
     border-radius: 0.5rem;
     font-size: 0.875rem;
     font-weight: 500;
-    transition: all 0.15s ease;
-}
-
-.pagination-wrapper nav a {
     color: var(--color-text-light);
     background-color: transparent;
+    border: 1px solid var(--color-border);
+    cursor: pointer;
+    transition: all 0.15s ease;
+    text-decoration: none;
 }
 
-.pagination-wrapper nav a:hover {
+.pagination-btn:hover {
     background-color: var(--color-primary-light);
     color: var(--color-primary);
+    border-color: var(--color-primary-light);
 }
 
-.pagination-wrapper nav span[aria-current="page"] span {
+.pagination-btn.active {
     color: white;
     background-color: var(--color-primary);
-    border-radius: 0.5rem;
-    width: 2.25rem;
-    height: 2.25rem;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
+    border-color: var(--color-primary);
+    font-weight: 600;
+}
+
+.pagination-btn.disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+    pointer-events: none;
 }
 
 /* ========================================
@@ -1009,6 +1007,8 @@ body {
 /* ========================================
    Responsive
    ======================================== */
+
+/* --- Tablet and below (sidebar collapses) --- */
 @media (max-width: 1024px) {
     .sidebar {
         transform: translateX(-100%);
@@ -1034,5 +1034,175 @@ body {
 
     .sidebar-overlay {
         display: none;
+    }
+}
+
+/* --- Small screens (phones, < 768px) --- */
+@media (max-width: 768px) {
+    .main-header {
+        padding: 0.75rem 1rem;
+    }
+
+    .main-body {
+        padding: 1rem;
+    }
+
+    /* Table header stacks vertically */
+    .table-header {
+        flex-direction: column;
+        align-items: stretch;
+        padding: 1rem;
+        gap: 0.75rem;
+    }
+
+    .table-header .btn-primary {
+        width: 100%;
+        justify-content: center;
+    }
+
+    /* Search takes full width */
+    .search-wrapper {
+        width: 100%;
+    }
+
+    .search-input {
+        max-width: 100%;
+        width: 100%;
+    }
+
+    /* Table cells: reduce padding */
+    .data-table thead th {
+        padding: 0.625rem 0.75rem;
+        font-size: 0.675rem;
+        white-space: nowrap;
+    }
+
+    .data-table tbody td {
+        padding: 0.75rem;
+        font-size: 0.8125rem;
+    }
+
+    /* Stat cards */
+    .stat-card {
+        padding: 1rem;
+        gap: 1rem;
+    }
+
+    .stat-card .stat-value {
+        font-size: 1.5rem;
+    }
+
+    .stat-card .stat-icon {
+        width: 2.75rem;
+        height: 2.75rem;
+        border-radius: 0.75rem;
+    }
+
+    .stat-card .stat-icon svg {
+        width: 1.25rem;
+        height: 1.25rem;
+    }
+
+    /* Pagination stacks */
+    .pagination-wrapper {
+        flex-direction: column;
+        gap: 0.75rem;
+        align-items: center;
+        padding: 1rem;
+    }
+
+    /* Toast takes full width on mobile */
+    .toast {
+        left: 1rem;
+        right: 1rem;
+        min-width: unset;
+        max-width: unset;
+    }
+
+    /* Cards */
+    .card {
+        padding: 1rem;
+    }
+
+    /* Form select in table headers */
+    .form-select {
+        max-width: 100% !important;
+    }
+
+    /* Profile card */
+    .profile-card {
+        padding: 1rem;
+    }
+
+    .avatar-xl {
+        width: 5rem;
+        height: 5rem;
+    }
+
+    /* Login card */
+    .login-card {
+        padding: 1.5rem;
+    }
+
+    /* Modal */
+    .modal-content {
+        margin: 0 0.5rem;
+    }
+
+    /* Photo upload */
+    .photo-upload {
+        width: 6rem;
+        height: 6rem;
+    }
+
+    /* Empty state */
+    .empty-state {
+        padding: 2rem 1rem;
+    }
+
+    .empty-state svg {
+        width: 3rem;
+        height: 3rem;
+    }
+}
+
+/* --- Extra small screens (< 480px) --- */
+@media (max-width: 480px) {
+    .main-body {
+        padding: 0.75rem;
+    }
+
+    .main-header {
+        padding: 0.625rem 0.75rem;
+    }
+
+    .stat-card .stat-value {
+        font-size: 1.25rem;
+    }
+
+    .stat-card .stat-label {
+        font-size: 0.75rem;
+    }
+
+    .btn-primary,
+    .btn-secondary,
+    .btn-success,
+    .btn-danger,
+    .btn-ghost {
+        padding: 0.5rem 1rem;
+        font-size: 0.8125rem;
+    }
+
+    .badge {
+        font-size: 0.675rem;
+        padding: 0.125rem 0.5rem;
+    }
+
+    .sidebar-logo {
+        padding: 1rem;
+    }
+
+    .sidebar-logo h1 {
+        font-size: 1.125rem;
     }
 }
