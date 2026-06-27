@@ -109,3 +109,16 @@ If you prefer running components individually, run each command in its own termi
    ```bash
    php artisan queue:listen --tries=1
    ```
+
+---
+
+## Default Login Credentials
+
+After seeding the database (`php artisan migrate --seed`), you can log in with the following admin account:
+
+| Field        | Value                    |
+|--------------|--------------------------|
+| **Email**    | `admin@rhmanager.com`    |
+| **Password** | `password`               |
+
+> ⚠️ **Important**: Change these credentials immediately if deploying to a production environment.
