@@ -120,5 +120,3 @@ After seeding the database (`php artisan migrate --seed`), you can log in with t
 |--------------|--------------------------|
 | **Email**    | `admin@rhmanager.com`    |
 | **Password** | `password`               |
-
-> ⚠️ **Important**: Change these credentials immediately if deploying to a production environment.
